@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copiar Token</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #token {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-right: 10px;
+            width: 300px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Token para Copiar</h1>
+    <input type="text" id="token" value="seu_token_aqui" readonly>
+    <button onclick="copyToken()">Copiar Token</button>
+    <p id="message"></p>
+    
+    <script>
+        function copyToken() {
+            // Seleciona o input do token
+            const tokenInput = document.getElementById('token');
+
+            // Seleciona o texto do input
+            tokenInput.select();
+            tokenInput.setSelectionRange(0, 99999); // Para dispositivos móveis
+
+            // Copia o texto para a área de transferência
+            document.execCommand('copy');
+
+            // Exibe uma mensagem de sucesso
+            document.getElementById('message').innerText = 'Token copiado: ' + tokenInput.value;
+        }
+    </script>
+</body>
+</html>
